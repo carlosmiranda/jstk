@@ -1,0 +1,33 @@
+assets:
+  settings.xml: teamed/home#assets/zerocracy/settings.xml
+  pubring.gpg: teamed/home#assets/pubring.gpg
+  secring.gpg: teamed/home#assets/secring.gpg
+  s3cfg: teamed/home#assets/s3cfg
+env:
+  MAVEN_OPTS: -XX:MaxPermSize=256m -Xmx1g
+  JAVA_OPTS: -XX:MaxPermSize=256m -Xmx1g
+install: |
+  sudo locale-gen en_US en_US.UTF-8
+  sudo dpkg-reconfigure locales
+  export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+  export LANGUAGE=en_US.UTF-8
+  sudo gem install --no-rdoc --no-ri pdd
+  sudo gem install --no-rdoc --no-ri est
+architect:
+- yegor256
+merge:
+  script: |
+    mvn clean install -Pzerocracy -Pqulice --errors --settings ../settings.xml
+    mvn clean site -Psite --errors --settings ../settings.xml
+    mvn clean
+    pdd --source=$(pwd) --verbose --file=/dev/null
+  commanders:
+  - yegor256
+release:
+  script: |-
+    mvn versions:set "-DnewVersion=${tag}"
+    git commit -am "${tag}"
+    mvn clean deploy -Pzerocracy -Psonatype --errors --settings ../settings.xml
+  commanders:
+  - yegor256
