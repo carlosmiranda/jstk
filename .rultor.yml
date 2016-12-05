@@ -15,7 +15,7 @@ architect:
 - yegor256
 merge:
   script: |
-    mvn clean install -Pzerocracy -Pqulice --errors --settings ../settings.xml
+    mvn clean install -Pzc-jstk -Pqulice --errors --settings ../settings.xml
     mvn clean site -Psite --errors --settings ../settings.xml
     mvn clean
     pdd --source=$(pwd) --verbose --file=/dev/null
@@ -25,6 +25,6 @@ release:
   script: |-
     mvn versions:set "-DnewVersion=${tag}"
     git commit -am "${tag}"
-    mvn clean deploy -Pzerocracy -Psonatype --errors --settings ../settings.xml
+    mvn clean deploy -Pzc-jstk -Psonatype --errors --settings ../settings.xml
   commanders:
   - yegor256
