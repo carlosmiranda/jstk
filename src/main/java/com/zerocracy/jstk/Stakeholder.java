@@ -29,9 +29,8 @@ public interface Stakeholder {
 
     /**
      * Work in the given project.
-     * @param project Project to work with
      * @throws IOException If fails on I/O
      */
-    void work(Project project) throws IOException;
+    void work() throws IOException;
 
 }
