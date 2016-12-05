@@ -26,7 +26,7 @@
     </parent>
     <groupId>com.zerocracy</groupId>
     <artifactId>jstk</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>jar</packaging>
     <name>jstk</name>
     <description>Java Stakeholder API</description>
