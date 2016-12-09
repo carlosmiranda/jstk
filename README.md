@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/zerocracy/jstk.svg?branch=master)](https://travis-ci.org/zerocracy/jstk)
 
-Java Stakeholder API.
+Java Stakeholder API
+
+## Key classes
 
 There are two key types: `Crew` and `Stakeholder`.
 
