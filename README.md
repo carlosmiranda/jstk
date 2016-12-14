@@ -1,6 +1,7 @@
 <img src="http://www.zerocracy.com/logo.svg" width="64px" height="64px"/>
 
 [![Build Status](https://travis-ci.org/zerocracy/jstk.svg?branch=master)](https://travis-ci.org/zerocracy/jstk)
+[![PDD status](http://www.0pdd.com/svg?name=zerocracy/jstk)](http://www.0pdd.com/p?name=zerocracy/jstk)
 
 Java Stakeholder API
 
