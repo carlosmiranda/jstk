@@ -14,25 +14,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.zerocracy.jstk;
+package com.zerocracy.jstk.fake;
 
+import com.zerocracy.jstk.Crew;
+import com.zerocracy.jstk.Farm;
 import java.io.IOException;
 
 /**
- * Project.
+ * Fake {@link Crew}.
  *
  * @author Yegor Bugayenko (yegor256@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 0.2
  */
-public interface Project {
+public final class FkCrew implements Crew {
 
-    /**
-     * Acquire an item (will be unlocked when Item is released).
-     * @param file File name in the project
-     * @return Item acquired
-     * @throws IOException If fails on I/O
-     */
-    Item acq(String file) throws IOException;
+    @Override
+    public void deploy(final Farm farm) throws IOException {
+        farm.deploy(new FkStakeholder());
+    }
 
 }

@@ -14,25 +14,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.zerocracy.jstk;
+package com.zerocracy.jstk.fake;
 
+import com.zerocracy.jstk.Stakeholder;
 import java.io.IOException;
 
 /**
- * Project.
+ * Fake {@link Stakeholder}.
  *
  * @author Yegor Bugayenko (yegor256@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 0.2
  */
-public interface Project {
+public final class FkStakeholder implements Stakeholder {
 
-    /**
-     * Acquire an item (will be unlocked when Item is released).
-     * @param file File name in the project
-     * @return Item acquired
-     * @throws IOException If fails on I/O
-     */
-    Item acq(String file) throws IOException;
+    @Override
+    public void work() throws IOException {
+        // nothing to do here
+    }
 
 }

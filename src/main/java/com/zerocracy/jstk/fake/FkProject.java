@@ -14,25 +14,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.zerocracy.jstk;
+package com.zerocracy.jstk.fake;
 
+import com.zerocracy.jstk.Farm;
+import com.zerocracy.jstk.Item;
+import com.zerocracy.jstk.Project;
 import java.io.IOException;
 
 /**
- * Project.
+ * Fake {@link Farm}.
  *
  * @author Yegor Bugayenko (yegor256@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 0.2
  */
-public interface Project {
+public final class FkProject implements Project {
 
-    /**
-     * Acquire an item (will be unlocked when Item is released).
-     * @param file File name in the project
-     * @return Item acquired
-     * @throws IOException If fails on I/O
-     */
-    Item acq(String file) throws IOException;
+    @Override
+    public Item acq(final String file) throws IOException {
+        return new FkItem();
+    }
 
 }

@@ -16,23 +16,24 @@
  */
 package com.zerocracy.jstk;
 
+import java.io.Closeable;
+import java.io.File;
 import java.io.IOException;
 
 /**
- * Project.
+ * One item in a project.
  *
  * @author Yegor Bugayenko (yegor256@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 0.2
  */
-public interface Project {
+public interface Item extends Closeable {
 
     /**
-     * Acquire an item (will be unlocked when Item is released).
-     * @param file File name in the project
-     * @return Item acquired
+     * Get file.
+     * @return File location
      * @throws IOException If fails on I/O
      */
-    Item acq(String file) throws IOException;
+    File file() throws IOException;
 
 }

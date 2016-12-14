@@ -14,25 +14,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.zerocracy.jstk;
+package com.zerocracy.jstk.fake;
 
+import com.zerocracy.jstk.Farm;
+import com.zerocracy.jstk.Project;
+import com.zerocracy.jstk.Stakeholder;
 import java.io.IOException;
+import java.util.Collections;
 
 /**
- * Project.
+ * Fake {@link Farm}.
  *
  * @author Yegor Bugayenko (yegor256@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 0.2
  */
-public interface Project {
+public final class FkFarm implements Farm {
 
-    /**
-     * Acquire an item (will be unlocked when Item is released).
-     * @param file File name in the project
-     * @return Item acquired
-     * @throws IOException If fails on I/O
-     */
-    Item acq(String file) throws IOException;
+    @Override
+    public Iterable<Project> find(final String query) throws IOException {
+        return Collections.singleton(
+            new FkProject()
+        );
+    }
 
+    @Override
+    public void deploy(final Stakeholder stk) throws IOException {
+        throw new UnsupportedOperationException("#deploy()");
+    }
 }

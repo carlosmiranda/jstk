@@ -28,7 +28,7 @@ import java.io.IOException;
 public interface Crew {
 
     /**
-     * Deploy to the farm.
+     * Deploy to the farm (to be called every minute or so).
      * @param farm The farm
      * @throws IOException If fails on I/O
      */

@@ -28,7 +28,7 @@ import java.io.IOException;
 public interface Stakeholder {
 
     /**
-     * Work in the given project.
+     * Do the work.
      * @throws IOException If fails on I/O
      */
     void work() throws IOException;

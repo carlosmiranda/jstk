@@ -35,4 +35,11 @@ public interface Farm {
      */
     Iterable<Project> find(String query) throws IOException;
 
+    /**
+     * Deploy to the farm.
+     * @param stk Stakeholder
+     * @throws IOException If fails on I/O
+     */
+    void deploy(Stakeholder stk) throws IOException;
+
 }
