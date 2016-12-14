@@ -32,7 +32,7 @@ import java.util.Collections;
 public final class FkFarm implements Farm {
 
     @Override
-    public Iterable<Project> find(final String query) throws IOException {
+    public Iterable<Project> find(final String query) {
         return Collections.singleton(
             new FkProject()
         );
@@ -40,6 +40,6 @@ public final class FkFarm implements Farm {
 
     @Override
     public void deploy(final Stakeholder stk) throws IOException {
-        throw new UnsupportedOperationException("#deploy()");
+        stk.work();
     }
 }

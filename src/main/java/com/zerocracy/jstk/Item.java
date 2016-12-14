@@ -17,8 +17,8 @@
 package com.zerocracy.jstk;
 
 import java.io.Closeable;
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
 /**
  * One item in a project.
@@ -30,10 +30,10 @@ import java.io.IOException;
 public interface Item extends Closeable {
 
     /**
-     * Get file.
+     * Get path.
      * @return File location
      * @throws IOException If fails on I/O
      */
-    File file() throws IOException;
+    Path path() throws IOException;
 
 }

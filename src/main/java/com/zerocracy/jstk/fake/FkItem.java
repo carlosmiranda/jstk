@@ -17,8 +17,9 @@
 package com.zerocracy.jstk.fake;
 
 import com.zerocracy.jstk.Item;
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * Fake {@link Item}.
@@ -29,14 +30,27 @@ import java.io.IOException;
  */
 public final class FkItem implements Item {
 
+    /**
+     * Location of the file.
+     */
+    private final Path tmp;
+
+    /**
+     * Ctor.
+     * @throws IOException If fails
+     */
+    public FkItem() throws IOException {
+        this.tmp = Files.createTempFile("jstk", ".xml");
+    }
+
     @Override
-    public File file() throws IOException {
-        throw new UnsupportedOperationException("#file()");
+    public Path path() {
+        return this.tmp;
     }
 
     @Override
     public void close() throws IOException {
-        throw new UnsupportedOperationException("#close()");
+        Files.delete(this.tmp);
     }
 
 }
