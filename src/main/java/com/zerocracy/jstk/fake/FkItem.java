@@ -49,8 +49,8 @@ public final class FkItem implements Item {
     }
 
     @Override
-    public void close() throws IOException {
-        Files.delete(this.tmp);
+    public void close() {
+        // nothing to do here
     }
 
 }
