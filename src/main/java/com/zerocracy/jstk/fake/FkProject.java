@@ -20,6 +20,8 @@ import com.zerocracy.jstk.Farm;
 import com.zerocracy.jstk.Item;
 import com.zerocracy.jstk.Project;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Fake {@link Farm}.
@@ -30,9 +32,18 @@ import java.io.IOException;
  */
 public final class FkProject implements Project {
 
+    /**
+     * All seen items.
+     */
+    private final Map<String, Item> items =
+        new HashMap<>(0);
+
     @Override
     public Item acq(final String file) throws IOException {
-        return new FkItem();
+        if (!this.items.containsKey(file)) {
+            this.items.put(file, new FkItem());
+        }
+        return this.items.get(file);
     }
 
 }
