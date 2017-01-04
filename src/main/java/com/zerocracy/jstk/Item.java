@@ -16,7 +16,6 @@
  */
 package com.zerocracy.jstk;
 
-import java.io.Closeable;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -27,7 +26,10 @@ import java.nio.file.Path;
  * @version $Id$
  * @since 0.2
  */
-public interface Item extends Closeable {
+public interface Item extends AutoCloseable {
+
+    @Override
+    void close() throws IOException;
 
     /**
      * Get path.
