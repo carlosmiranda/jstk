@@ -39,11 +39,6 @@ public final class FkProject implements Project {
         new HashMap<>(0);
 
     @Override
-    public String pid() {
-        return "P01234567";
-    }
-
-    @Override
     public Item acq(final String file) throws IOException {
         if (!this.items.containsKey(file)) {
             this.items.put(file, new FkItem());
