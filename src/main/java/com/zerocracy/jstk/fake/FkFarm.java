@@ -32,7 +32,7 @@ import java.util.Collections;
 public final class FkFarm implements Farm {
 
     @Override
-    public Iterable<Project> find(final String query) {
+    public Iterable<Project> find(final String xpath) {
         return Collections.singleton(
             new FkProject()
         );

@@ -28,12 +28,12 @@ import java.io.IOException;
 public interface Farm {
 
     /**
-     * Find all suitable projects.
-     * @param query Query
+     * Find all suitable projects by XPath term.
+     * @param xpath XPath term
      * @return Projects found
      * @throws IOException If fails on I/O
      */
-    Iterable<Project> find(String query) throws IOException;
+    Iterable<Project> find(String xpath) throws IOException;
 
     /**
      * Deploy to the farm.

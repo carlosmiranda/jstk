@@ -28,6 +28,13 @@ import java.io.IOException;
 public interface Project {
 
     /**
+     * Project ID.
+     * @return PID of the project
+     * @throws IOException If fails on I/O
+     */
+    String pid() throws IOException;
+
+    /**
      * Acquire an item (will be unlocked when Item is released).
      * @param file File name in the project
      * @return Item acquired
