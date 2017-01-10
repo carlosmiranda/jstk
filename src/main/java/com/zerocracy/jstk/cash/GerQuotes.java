@@ -16,7 +16,6 @@
  */
 package com.zerocracy.jstk.cash;
 
-import com.jcabi.aspects.Cacheable;
 import com.jcabi.http.request.JdkRequest;
 import com.jcabi.http.response.JsonResponse;
 import com.jcabi.http.response.RestResponse;
@@ -34,7 +33,6 @@ import javax.json.JsonObject;
 public final class GerQuotes implements Quotes {
 
     @Override
-    @Cacheable
     public double quote(final Currency src, final Currency dest) {
         if (!src.equals(Currency.USD) && !dest.equals(Currency.USD)) {
             throw new IllegalArgumentException(
