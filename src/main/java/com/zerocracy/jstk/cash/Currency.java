@@ -76,7 +76,7 @@ public interface Currency extends Comparable<Currency>, Serializable {
         private static final long serialVersionUID = 0x7523FA77CFDF0130L;
         /**
          * Three-letter currency code, as in ISO 4217.
-         * @link <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
+         * @see <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
          * @serial
          */
         private final String iso;
