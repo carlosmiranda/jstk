@@ -34,6 +34,7 @@ import java.util.regex.Pattern;
  * @version $Id$
  * @since 0.6
  */
+@SuppressWarnings("PMD.TooManyMethods")
 final class Pair implements Comparable<Pair>, Serializable {
 
     /**
@@ -57,6 +58,7 @@ final class Pair implements Comparable<Pair>, Serializable {
     /**
      * Currencies by symbol.
      */
+    @SuppressWarnings("PMD.NonStaticInitializer")
     private static final Map<Character, Currency> BY_SYMBOL =
         new HashMap<Character, Currency>() {
             private static final long serialVersionUID = -1679376571970875549L;
@@ -72,6 +74,7 @@ final class Pair implements Comparable<Pair>, Serializable {
     /**
      * Currencies by symbol.
      */
+    @SuppressWarnings("PMD.NonStaticInitializer")
     private static final Map<String, Currency> BY_ISO =
         new HashMap<String, Currency>() {
             private static final long serialVersionUID = -1679376566970875549L;
@@ -141,6 +144,7 @@ final class Pair implements Comparable<Pair>, Serializable {
      * @param text Text presentation of a monetary pair
      * @return The pair found
      */
+    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
     public static Pair valueOf(final String text) {
         final boolean negative;
         final Matcher matcher;

@@ -30,6 +30,7 @@ import lombok.EqualsAndHashCode;
  * @since 0.6
  * @checkstyle TooManyMethods (500 lines)
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public interface Cash extends Comparable<Cash>, Serializable {
 
     /**
@@ -110,7 +111,6 @@ public interface Cash extends Comparable<Cash>, Serializable {
         /**
          * Pairs in order.
          */
-        @SuppressWarnings("PMD.BeanMembersShouldSerialize")
         private final Pair[] pairs;
 
         /**
@@ -139,34 +139,8 @@ public interface Cash extends Comparable<Cash>, Serializable {
          * @param quotes Quotes to use
          */
         private S(final Pair[] prs, final Quotes quotes) {
-            assert prs.length > 0;
+            this.pairs = Cash.S.normalized(prs);
             this.qts = quotes;
-            final Pair[] buf = new Pair[prs.length];
-            int pos = 0;
-            for (final Pair pair : prs) {
-                if (pair.isEmpty()) {
-                    continue;
-                }
-                boolean added = false;
-                for (int left = 0; left < pos; ++left) {
-                    if (buf[left].comparable(pair)) {
-                        buf[left] = buf[left].add(pair);
-                        added = true;
-                        break;
-                    }
-                }
-                if (!added) {
-                    buf[pos] = pair;
-                    ++pos;
-                }
-            }
-            if (pos == 0) {
-                this.pairs = new Pair[] {new Pair()};
-            } else {
-                this.pairs = new Pair[pos];
-                System.arraycopy(buf, 0, this.pairs, 0, this.pairs.length);
-                Arrays.sort(this.pairs, Pair.COMPARATOR);
-            }
         }
 
         @Override
@@ -286,6 +260,43 @@ public interface Cash extends Comparable<Cash>, Serializable {
                 prs[num] = Pair.valueOf(parts[num]);
             }
             return prs;
+        }
+
+        /**
+         * Normalized pairs.
+         * @param prs Pairs
+         * @return Pairs
+         */
+        private static Pair[] normalized(final Pair... prs) {
+            assert prs.length > 0;
+            final Pair[] buf = new Pair[prs.length];
+            int pos = 0;
+            for (final Pair pair : prs) {
+                if (pair.isEmpty()) {
+                    continue;
+                }
+                boolean added = false;
+                for (int left = 0; left < pos; ++left) {
+                    if (buf[left].comparable(pair)) {
+                        buf[left] = buf[left].add(pair);
+                        added = true;
+                        break;
+                    }
+                }
+                if (!added) {
+                    buf[pos] = pair;
+                    ++pos;
+                }
+            }
+            final Pair[] array;
+            if (pos == 0) {
+                array = new Pair[] {new Pair()};
+            } else {
+                array = new Pair[pos];
+                System.arraycopy(buf, 0, array, 0, array.length);
+                Arrays.sort(array, Pair.COMPARATOR);
+            }
+            return array;
         }
 
     }

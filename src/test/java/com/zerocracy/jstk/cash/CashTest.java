@@ -94,9 +94,9 @@ public final class CashTest {
         );
         MatcherAssert.assertThat(
             new Cash.S("USD 1000")
-                .add(new Cash.S("EUR 10"))
+                .add(new Cash.S("EUR 11"))
                 .mul(-25L).div(100L),
-            Matchers.hasToString("(€2.50) + ($250.00)")
+            Matchers.hasToString("(€2.75) + ($250.00)")
         );
     }
 
