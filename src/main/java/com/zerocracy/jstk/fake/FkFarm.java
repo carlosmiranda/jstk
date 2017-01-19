@@ -18,8 +18,6 @@ package com.zerocracy.jstk.fake;
 
 import com.zerocracy.jstk.Farm;
 import com.zerocracy.jstk.Project;
-import com.zerocracy.jstk.Stakeholder;
-import java.io.IOException;
 import java.util.Collections;
 
 /**
@@ -38,8 +36,4 @@ public final class FkFarm implements Farm {
         );
     }
 
-    @Override
-    public void deploy(final Stakeholder stk) throws IOException {
-        stk.work();
-    }
 }

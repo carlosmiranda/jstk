@@ -16,6 +16,7 @@
  */
 package com.zerocracy.jstk.fake;
 
+import com.zerocracy.jstk.Project;
 import com.zerocracy.jstk.Stakeholder;
 import java.io.IOException;
 
@@ -29,7 +30,7 @@ import java.io.IOException;
 public final class FkStakeholder implements Stakeholder {
 
     @Override
-    public void work() throws IOException {
+    public void work(final Project project) throws IOException {
         // nothing to do here
     }
 

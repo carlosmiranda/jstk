@@ -202,7 +202,9 @@ public interface Cash extends Comparable<Cash>, Serializable {
         @Override
         public Cash div(final long divider) {
             if (divider == 0) {
-                throw new IllegalArgumentException("divider can't be zero");
+                throw new IllegalArgumentException(
+                    "Divider can't be zero"
+                );
             }
             final Pair[] prs = new Pair[this.pairs.length];
             for (int num = 0; num < this.pairs.length; ++num) {
@@ -216,7 +218,7 @@ public interface Cash extends Comparable<Cash>, Serializable {
             if (this.pairs.length != 1) {
                 throw new IllegalStateException(
                     String.format(
-                        "use exchange() first to unify currencies: %s",
+                        "Use exchange() first to unify currencies: \"%s\"",
                         this
                     )
                 );

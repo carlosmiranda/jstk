@@ -19,27 +19,32 @@ package com.zerocracy.jstk;
 import java.io.IOException;
 
 /**
- * Farm.
+ * Farm of projects.
+ *
+ * <p>The farm is the main storage of objects. To find the project
+ * you have to provide XPath query for it. All projects are stored
+ * in a catalog, which is described at catalog.xsd.</p>
  *
  * @author Yegor Bugayenko (yegor256@gmail.com)
  * @version $Id$
+ * @see <a href="https://github.com/zerocracy/datum/blob/master/xsd/pmo/catalog.xsd">catalog.xsd</a>
  * @since 0.1
  */
 public interface Farm {
 
     /**
      * Find all suitable projects by XPath term.
+     *
+     * <p>XPath query will be executed at the catalog.xml
+     * and all found projects will be returned. An example query
+     * may look like this: {@code @id='C3FFK3YAY'}, where {@code C3FFK3YAY}
+     * is the ID of Slack channel, where the project is managed.</p>
+     *
      * @param xpath XPath term
      * @return Projects found
      * @throws IOException If fails on I/O
+     * @see <a href="https://github.com/zerocracy/datum/blob/master/xsd/pmo/catalog.xsd">catalog.xsd</a>
      */
     Iterable<Project> find(String xpath) throws IOException;
-
-    /**
-     * Deploy to the farm.
-     * @param stk Stakeholder
-     * @throws IOException If fails on I/O
-     */
-    void deploy(Stakeholder stk) throws IOException;
 
 }

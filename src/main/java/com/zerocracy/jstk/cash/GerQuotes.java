@@ -37,7 +37,7 @@ public final class GerQuotes implements Quotes {
         if (!src.equals(Currency.USD) && !dest.equals(Currency.USD)) {
             throw new IllegalArgumentException(
                 String.format(
-                    "at least one currency must be USD, %s/%s",
+                    "At least one currency must be USD, %s/%s",
                     src, dest
                 )
             );

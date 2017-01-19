@@ -29,6 +29,17 @@ public interface Project {
 
     /**
      * Acquire an item (will be unlocked when Item is released).
+     *
+     * <p>Each item is a file in project container. When you acquire it
+     * nobody else will have access to this file, until you call
+     * {@code Item.close()}. The best approach is to use items
+     * in try-with-resource blocks, for example:</p>
+     *
+     * <pre>{@code try (Item item = project.acq("test.xml")) {
+     *   Path path = item.path();
+     *   Files.write(path, "hello, world".getBytes());
+     * }}</pre>
+     *
      * @param file File name in the project
      * @return Item acquired
      * @throws IOException If fails on I/O

@@ -19,7 +19,7 @@ package com.zerocracy.jstk;
 import java.io.IOException;
 
 /**
- * Stakeholder.
+ * Stakeholder, an active worker with project files.
  *
  * @author Yegor Bugayenko (yegor256@gmail.com)
  * @version $Id$
@@ -28,9 +28,10 @@ import java.io.IOException;
 public interface Stakeholder {
 
     /**
-     * Do the work.
+     * Do the work in this project.
+     * @param project Project to work with
      * @throws IOException If fails on I/O
      */
-    void work() throws IOException;
+    void work(Project project) throws IOException;
 
 }

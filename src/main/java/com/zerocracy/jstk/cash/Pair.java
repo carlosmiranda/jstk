@@ -158,7 +158,7 @@ final class Pair implements Comparable<Pair>, Serializable {
         if (!matcher.matches()) {
             throw new IllegalArgumentException(
                 String.format(
-                    "can't parse pair '%s'", text
+                    "Can't parse cash value pair \"%s\"", text
                 )
             );
         }
@@ -258,7 +258,7 @@ final class Pair implements Comparable<Pair>, Serializable {
         if (!this.comparable(pair)) {
             throw new IllegalArgumentException(
                 String.format(
-                    "currencies mismatch: \"%s\" vs \"%s\"",
+                    "Currencies mismatch: \"%s\" vs \"%s\"",
                     this, pair
                 )
             );
@@ -289,7 +289,9 @@ final class Pair implements Comparable<Pair>, Serializable {
      */
     public Pair div(final long divider) {
         if (divider == 0L) {
-            throw new IllegalArgumentException("divider can't be zero");
+            throw new IllegalArgumentException(
+                "Divider can't be zero"
+            );
         }
         return new Pair(
             this.decimal().divide(
@@ -347,19 +349,25 @@ final class Pair implements Comparable<Pair>, Serializable {
             currency = Pair.BY_SYMBOL.get(text.charAt(0));
             if (currency == null) {
                 throw new IllegalArgumentException(
-                    String.format("invalid currency symbol '%s'", text)
+                    String.format(
+                        "Invalid currency symbol \"%s\"", text
+                    )
                 );
             }
         } else if (text.matches("[A-Z]{3}")) {
             currency = Pair.BY_ISO.get(text);
             if (currency == null) {
                 throw new IllegalArgumentException(
-                    String.format("invalid currency ISO code '%s'", text)
+                    String.format(
+                        "Unsupported currency ISO code \"%s\"", text
+                    )
                 );
             }
         } else {
             throw new IllegalArgumentException(
-                String.format("invalid currency '%s'", text)
+                String.format(
+                    "Invalid currency \"%s\"", text
+                )
             );
         }
         return currency;
