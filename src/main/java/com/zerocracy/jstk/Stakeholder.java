@@ -16,6 +16,7 @@
  */
 package com.zerocracy.jstk;
 
+import com.jcabi.xml.XML;
 import java.io.IOException;
 
 /**
@@ -28,10 +29,17 @@ import java.io.IOException;
 public interface Stakeholder {
 
     /**
-     * Do the work in this project.
+     * XPath term to detect your interest in claims.
+     * @return XPath term for {@code /claims/claim}
+     */
+    String term();
+
+    /**
+     * Process this claim in this project.
      * @param project Project to work with
+     * @param claim The claim
      * @throws IOException If fails on I/O
      */
-    void work(Project project) throws IOException;
+    void process(Project project, XML claim) throws IOException;
 
 }
