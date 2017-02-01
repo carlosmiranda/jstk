@@ -32,11 +32,6 @@ import org.xembly.Directive;
 public final class FkStakeholder implements Stakeholder {
 
     @Override
-    public String term() {
-        return "";
-    }
-
-    @Override
     public Iterable<Directive> process(final Project project,
         final XML claim) {
         return Collections.emptyList();

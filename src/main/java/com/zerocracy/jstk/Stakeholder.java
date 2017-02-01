@@ -30,12 +30,6 @@ import org.xembly.Directive;
 public interface Stakeholder {
 
     /**
-     * XPath term to detect your interest in claims.
-     * @return XPath term for {@code /claims/claim}
-     */
-    String term();
-
-    /**
      * Process this claim in this project.
      * @param project Project to work with
      * @param claim The claim
