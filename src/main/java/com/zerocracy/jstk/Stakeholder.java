@@ -18,7 +18,6 @@ package com.zerocracy.jstk;
 
 import com.jcabi.xml.XML;
 import java.io.IOException;
-import org.xembly.Directive;
 
 /**
  * Stakeholder, an active worker with project files.
@@ -33,10 +32,8 @@ public interface Stakeholder {
      * Process this claim in this project.
      * @param project Project to work with
      * @param claim The claim
-     * @return Collection of changes to claims.xml
      * @throws IOException If fails on I/O
      */
-    Iterable<Directive> process(Project project, XML claim)
-        throws IOException;
+    void process(Project project, XML claim) throws IOException;
 
 }

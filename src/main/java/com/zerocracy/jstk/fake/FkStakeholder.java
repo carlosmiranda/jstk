@@ -19,8 +19,6 @@ package com.zerocracy.jstk.fake;
 import com.jcabi.xml.XML;
 import com.zerocracy.jstk.Project;
 import com.zerocracy.jstk.Stakeholder;
-import java.util.Collections;
-import org.xembly.Directive;
 
 /**
  * Fake {@link Stakeholder}.
@@ -32,8 +30,7 @@ import org.xembly.Directive;
 public final class FkStakeholder implements Stakeholder {
 
     @Override
-    public Iterable<Directive> process(final Project project,
-        final XML claim) {
-        return Collections.emptyList();
+    public void process(final Project project, final XML claim) {
+        // nothing to do
     }
 }
