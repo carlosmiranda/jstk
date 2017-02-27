@@ -14,41 +14,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.zerocracy.jstk.fake;
+package com.zerocracy.jstk;
 
-import com.zerocracy.jstk.Farm;
-import com.zerocracy.jstk.Item;
-import com.zerocracy.jstk.Project;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * Fake {@link Farm}.
+ * Soft exception from {@link Stakeholder}.
  *
  * @author Yegor Bugayenko (yegor256@gmail.com)
  * @version $Id$
- * @since 0.2
+ * @since 0.11
  */
-public final class FkProject implements Project {
+public final class SoftException extends IOException {
 
     /**
-     * All seen items.
+     * Serialization marker.
      */
-    private final Map<String, Item> items =
-        new HashMap<>(0);
+    private static final long serialVersionUID = -6427942021962997442L;
 
-    @Override
-    public String toString() {
-        return "fake";
+    /**
+     * Ctor.
+     * @param cause Cause of it
+     */
+    public SoftException(final String cause) {
+        super(cause);
     }
 
-    @Override
-    public Item acq(final String file) throws IOException {
-        if (!this.items.containsKey(file)) {
-            this.items.put(file, new FkItem());
-        }
-        return this.items.get(file);
+    /**
+     * Ctor.
+     * @param cause Cause of it
+     * @param thr Throwable
+     */
+    public SoftException(final String cause, final Throwable thr) {
+        super(cause, thr);
     }
 
 }
