@@ -19,6 +19,8 @@ package com.zerocracy.jstk.fake;
 import com.zerocracy.jstk.Farm;
 import com.zerocracy.jstk.Project;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Fake {@link Farm}.
@@ -29,11 +31,17 @@ import java.util.Collections;
  */
 public final class FkFarm implements Farm {
 
+    /**
+     * All seen projects.
+     */
+    private final Map<String, Project> projects = new HashMap<>(0);
+
     @Override
     public Iterable<Project> find(final String xpath) {
-        return Collections.singleton(
-            new FkProject()
-        );
+        if (!this.projects.containsKey(xpath)) {
+            this.projects.put(xpath, new FkProject());
+        }
+        return Collections.singleton(this.projects.get(xpath));
     }
 
 }

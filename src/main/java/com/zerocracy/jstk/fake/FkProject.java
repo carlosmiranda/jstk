@@ -35,8 +35,7 @@ public final class FkProject implements Project {
     /**
      * All seen items.
      */
-    private final Map<String, Item> items =
-        new HashMap<>(0);
+    private final Map<String, Item> items = new HashMap<>(0);
 
     @Override
     public String toString() {
