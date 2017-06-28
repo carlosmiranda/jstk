@@ -2,13 +2,10 @@
 
 [![Build Status](https://travis-ci.org/zerocracy/jstk.svg?branch=master)](https://travis-ci.org/zerocracy/jstk)
 [![PDD status](http://www.0pdd.com/svg?name=zerocracy/jstk)](http://www.0pdd.com/p?name=zerocracy/jstk)
+[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.zerocracy/jstk/badge.svg?color=blue&prefix=v)](http://www.javadoc.io/doc/com.zerocracy/jstk)
 [![Test Coverage](https://img.shields.io/codecov/c/github/zerocracy/jstk.svg)](https://codecov.io/github/zerocracy/jstk?branch=master)
 
 Java Stakeholder API
-
-## Key classes
-
-There are two key types: `Crew` and `Stakeholder`.
 
 ## License
 
