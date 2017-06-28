@@ -6,7 +6,6 @@ cache:
 script:
   - set -e
   - mvn clean install -Pqulice -Pjacoco --errors --batch-mode
-  - mvn clean
 env:
   global:
     - MAVEN_OPTS="-Xmx256m"
