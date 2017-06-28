@@ -22,7 +22,7 @@
     <parent>
         <groupId>com.jcabi</groupId>
         <artifactId>parent</artifactId>
-        <version>0.48.3</version>
+        <version>0.48.5</version>
     </parent>
     <groupId>com.zerocracy</groupId>
     <artifactId>jstk</artifactId>
@@ -149,21 +149,29 @@
             </build>
         </profile>
         <profile>
-            <id>coveralls</id>
+            <id>jacoco</id>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.eluder.coveralls</groupId>
-                        <artifactId>coveralls-maven-plugin</artifactId>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.7.8</version>
+                        <configuration>
+                            <output>file</output>
+                        </configuration>
                         <executions>
                             <execution>
-                                <phase>site</phase>
+                                <id>jacoco-initialize</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>jacoco-site</id>
+                                <phase>install</phase>
                                 <goals>
                                     <goal>report</goal>
                                 </goals>
-                                <configuration>
-                                    <repoToken>${coveralls.token}</repoToken>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>

@@ -39,7 +39,7 @@ public final class FkProject implements Project {
 
     @Override
     public String toString() {
-        return "fake";
+        return "A1B2C3D4E";
     }
 
     @Override
