@@ -34,7 +34,31 @@ public final class FkFarm implements Farm {
     /**
      * All seen projects.
      */
-    private final Map<String, Project> projects = new HashMap<>(0);
+    private final Map<String, Project> projects;
+
+    /**
+     * Ctor.
+     * @param projs Projects to initialize with
+     */
+    FkFarm(final Map<String, Project> projs) {
+        this.projects = new HashMap<>(projs);
+    }
+
+    /**
+     * Ctor to associate specific project with xpath.
+     * @param proj Project to return
+     * @param xpath Xpath
+     */
+    public FkFarm(final Project proj, final String xpath) {
+        this(Collections.singletonMap(xpath, proj));
+    }
+
+    /**
+     * Ctor.
+     */
+    public FkFarm() {
+        this(Collections.emptyMap());
+    }
 
     @Override
     public Iterable<Project> find(final String xpath) {
